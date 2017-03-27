@@ -1,0 +1,148 @@
+<p class="moreDetails visible-xs" id="ball">
+    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">更多详情</button>
+</p>
+<div id="carousel-example-generic" class="carousel slide carousel_bom" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="images/carousel/carousel_1.jpg" alt="">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="images/carousel/carousel_2.jpg" alt="">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="images/carousel/carousel_3.jpg" alt="">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="images/carousel/carousel_4.jpg" alt="">
+      <div class="carousel-caption">
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">上一个</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">下一个</span>
+  </a>
+</div>
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+       <div class="panel panel-primary">
+	      <div class="panel-heading">
+	      	<span class="glyphicon glyphicon-film" aria-hidden="true"></span><span class="panel-title">电影</span>
+	      	<span class="pull-right clearfix"><a class="more" ui-sref="Page1.heatfilm">更多</a><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+	      </div>
+		  <div class="panel-body">
+			  <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 mycol-xs-6 mycol-xs-3" ng-repeat="datas in filmlist">
+			    <div class="thumbnail">
+			      <div class="img-content">
+				  		<img ng-src="{{datas.images.large}}" alt="{{datas.alt}}" class="media-img">
+				  		<div class="film-details">
+				  			<span class="details-text hidden-xs">主演:<span ng-bind="$index==(datas.casts.length-1) ? n.name : n.name+',' " ng-repeat="n in datas.casts"></span> </span>
+				  			<span class="details-score clearfix" ng-bind="datas.rating.average"></span>
+				  		</div>
+			  	  </div>
+			      <div class="caption">
+			        <span class="film-name" ng-bind="datas.title"></span>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		</div>
+    </div><!--/.col-xs-12.col-sm-9-->
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+      <div class="list-group">
+      	<a class="list-group-item slidebar Ranking_heder_f">热门电影排行<i class="ico_text_top"></i></a>
+        <a class="list-group-item slidebar" ng-repeat="title in filmtitle"><span class="ranking" ng-bind="($index+1)+'、'"></span><span ng-bind="title"></span></a>
+      </div>
+    </div><!--/.col-xs-12.col-sm-3-->
+</div><!--/.sidebar-offcanvas-->
+
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+		<div class="panel panel-success">
+		  <div class="panel-heading">
+		    <span class="glyphicon glyphicon-music" aria-hidden="true"></span><span class="panel-title">音乐</span>
+		    <span class="pull-right clearfix"><a class="more" ui-sref="Page2">更多</a><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+		  </div>
+		  <div class="panel-body">
+		         <div class="panel-body">
+					  <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 mycol-xs-6 mycol-xs-3" ng-repeat="datas in musiclist">
+					    <div class="thumbnail">
+					      <div class="img-content">
+						  		<img ng-src="{{datas.image}}" alt="{{datas.alt}}" class="media-img">
+						  		<div class="film-details">
+						  			<span class="details-text hidden-xs">歌手:<span ng-bind="datas.author[0].name"></span> </span>
+						  			<span class="details-score clearfix" ng-bind="datas.rating.average"></span>
+						  		</div>
+					  	  </div>
+					      <div class="caption">
+					        <span class="film-name" ng-bind="datas.title"></span>
+					      </div>
+					    </div>
+					  </div>
+				 </div>
+		  </div>
+		</div>
+    </div><!--/.col-xs-12.col-sm-9-->
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+      <div class="list-group">
+      	<a class="list-group-item slidebar Ranking_heder_m">热门音乐排行<i class="ico_text_top"></i></a>
+        <a class="list-group-item slidebar" ng-repeat="title in musictitle"><span class="ranking" ng-bind="($index+1)+'、'"></span><span ng-bind="title"></span></a>
+      </div>
+    </div><!--/.col-xs-12.col-sm-3-->
+</div><!--/.sidebar-offcanvas-->
+
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+		<div class="panel panel-danger">
+		  <div class="panel-heading">
+		    <span class="glyphicon glyphicon-book" aria-hidden="true"></span><span class="panel-title">书城</span>
+		    <span class="pull-right clearfix"><a class="more" ui-sref="Page3">更多</a><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+		  </div>
+		  <div class="panel-body">
+		        <div class="panel-body">
+					  <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 mycol-xs-6 mycol-xs-3" ng-repeat="datas in bookslist">
+					    <div class="thumbnail">
+					      <div class="img-content">
+						  		<img ng-src="{{datas.images.large}}" alt="{{datas.alt}}" class="media-img">
+						  		<div class="film-details">
+						  			<span class="details-text hidden-xs">作者:<span ng-bind="datas.author[0]"></span> </span>
+						  			<span class="details-score clearfix" ng-bind="datas.rating.average"></span>
+						  		</div>
+					  	  </div>
+					      <div class="caption">
+					        <span class="film-name" ng-bind="datas.title"></span>
+					      </div>
+					    </div>
+					  </div>
+				 </div>
+		  </div>
+		</div> 
+    </div><!--/.col-xs-12.col-sm-9-->
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+      <div class="list-group">
+      	<a class="list-group-item slidebar Ranking_heder_b">热门书籍排行<i class="ico_text_top"></i></a>
+        <a class="list-group-item slidebar" ng-repeat="title in bookstitle"><span class="ranking" ng-bind="($index+1)+'、'"></span><span ng-bind="title"></span></a>
+      </div>
+    </div><!--/.col-xs-12.col-sm-3-->
+</div><!--/.sidebar-offcanvas-->

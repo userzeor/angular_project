@@ -1,0 +1,17 @@
+<div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation" ng-class="{active:isactive('Page1.heatfilm')}" ng-click="navactive('Page1.heatfilm')"><a ui-sref="Page1.heatfilm">正在热映</a></li>
+        <li role="presentation" ng-class="{active:isactive('Page1.soonfilm')}" ng-click="navactive('Page1.soonfilm')"><a ui-sref="Page1.soonfilm">即将上映</a></li>
+        <li role="presentation" ng-class="{active:isactive('Page1.topfilm')}" ng-click="navactive('Page1.topfilm')"><a ui-sref="Page1.topfilm">Top250</a></li>
+        <li role="presentation" ng-class="{active:isactive('Page1.boxofficefilm')}" ng-click="navactive('Page1.boxofficefilm')"><a ui-sref="Page1.boxofficefilm">北美票房榜</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">电影大全</h3>
+</div>
+</div>
+
+<div class="row marketing">
+    <div ui-view="film"></div>
+</div>
+

@@ -1,0 +1,22 @@
+<ul class="media-list">
+  <li class="media list-group-item" ng-repeat="item in heatfilmArr">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" ng-src="{{item.images.medium}}" alt="{{item.alt}}">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading" ng-bind="item.title+'('+item.year+')'"></h4>
+      <span class="pull-left score"><p>评分: <span class="score_num" ng-bind="item.rating.average"></span></p><p class="stars_text">评星数: <span class="stars" ng-bind="item.rating.stars"></span></p></span>
+      <p>原名: <span ng-bind="item.original_title"></span></p>
+      <p>导演: <span ng-bind="$index==(item.directors.length-1) ? Dlist.name : Dlist.name+','" ng-repeat="Dlist in item.directors"></span></p>
+      <p>主演: <span ng-bind="$index==(item.casts.length-1) ? Zlist.name : Zlist.name+','" ng-repeat="	Zlist in item.casts"></span></p>
+      <p>类型: <span ng-bind="$index==(item.genres.length-1) ? Tlist : Tlist+'/'" ng-repeat="	Tlist in item.genres"></span></p>
+      <span class="address">上映地点: <span ng-bind="heatfilmData.title.substr(8)"></span></span>
+    </div>
+  </li>
+</ul>
+<nav class="paging" aria-label="分页">
+  <ul id="page" class="pagination pagination-lg">
+  </ul>
+</nav>

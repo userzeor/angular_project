@@ -1,0 +1,53 @@
+<div ui-view="header"></div>
+<div class="container">
+    <div ui-view="body"></div>
+</div>
+
+<div class="passport-iframe-shadow" style="width: 100%; height: 955px; position: fixed; top: 0px; left: 0px; z-index: 8888; opacity: 0.7; display: block; background-color: rgb(0, 0, 0);" ng-show="showdialog"></div>
+<div class="dialog" style="margin-left: -375px; margin-top: -190px; width: 750px; height: 380px; display: block; z-index: 8889;" ng-show="showdialog">
+	<div class="login-register" style="display: block;">
+		<div class="login-image login-image-transition" style="background-image:url(images/mylogin.jpg)"></div>
+		<div class="login-view">
+			<div class="login-tab">
+				<a href="javascript:void(0)" ng-class="{'login-active':TabActive,'login-notactive':notTabActive}" ng-click="switchlogin()">登录</a>
+				<a href="javascript:void(0)" ng-class="{'login-notactive':TabActive,'login-active':notTabActive}" ng-click="switchregister()">注册</a>
+			</div>
+			<div ng-class="{'login-main-active':TabActive,'login-main':notTabActive}" id="login-area" ng-class="showtab"><!--//-----------登录-->
+				<form id="login-form"  ng-submit="login()" novalidate="novalidate">
+					<div class="login-error-tips" ng-bind="loginError"></div>
+					<div>
+						<input type="text" name="mobile" ng-model="LoginName" class="login-text-long" placeholder="请输入手机号码或邮箱">
+					</div>
+					<div>
+						<input type="password" name="pwd" ng-model="LoginPwd" class="login-text-long" placeholder="请输入密码"></div>
+					<div class="login-fun-wrap">
+						<label class="login-auto">
+							<input type="checkbox" name="autologin" checked="">
+						    <span>自动登录</span>
+						</label>
+						<a href="#" target="_blank" class="login-forget">忘记密码</a>
+					</div><input type="submit" value="登录" class="login-submit"><!--<input name="sign" type="hidden" value="ddf5605101e545ffd"><input name="encpsw" type="hidden" value="">-->
+				</form>
+				<div id="other-login">
+					<div class="login-third-wrap"><span class="third-text">第三方登录:</span><span><a class="ui-login-weibo">新浪登录</a></span><span><a  class="ui-login-weixin">微信登录</a></span><span><a class="ui-login-qq">QQ登录</a></span></div>
+				</div>
+			</div>
+			<div ng-class="{'login-main':TabActive,'login-main-active':notTabActive}" id="register-area" ng-class="showtab"><!--//-----------注册-->
+				<form id="register-form" ng-submit="register()" novalidate="novalidate">
+					<div class="login-error-tips" ng-bind="registerError"></div>
+					<div><input type="text" name="mobile" ng-model="registerName" class="login-text-long" placeholder="请输入手机号码或邮箱"></div>
+					<div><input type="password" name="pwd" ng-model="registerPwd" class="login-text-long" placeholder="密码为6-20位字符，支持大小写">
+						<div class="login-code-wrap"><input type="text" name="code" ng-model="registerCode" class="login-text-short" placeholder="请输入验证码"><input type="button" class="login-get-code" value="获取验证码" ng-click="getCode()" id="codeBtn"></div>
+					</div><input type="submit" value="立即注册" class="login-submit">
+					<div class="login-fun-wrap"><label class="login-auto"><input type="checkbox" name="agree" ng-click="ischecked()" ng-checked="registerfun"><span>我已阅读并同意<a>《娱乐之城服务条款》</a></span></label></div><!--<input name="sign" type="hidden" value="d3b88c760972a46dd"><input name="encpsw" type="hidden" value="">-->
+				</form>
+			</div>
+		</div>
+	</div>
+	<a href="javascript:void(0);" class="ico_close J_close" hidefocus="true" ng-click="closelogin()">关闭</a>
+</div>
+<footer class="footer navbar-fixed-bottom">
+	<div class="container">
+		<p>&copy; 2016 Company, Inc.</p>
+	</div>
+</footer>	
